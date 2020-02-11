@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.izzylan.extremeforest::init"
+      "com.izzylan.extremeforest.DeltasExtremeForestKt::init"
     ]
   },
   "mixins": [
