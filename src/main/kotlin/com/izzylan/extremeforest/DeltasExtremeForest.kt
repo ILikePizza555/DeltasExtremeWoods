@@ -1,7 +1,11 @@
 package com.izzylan.extremeforest
 
+import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes
+import net.fabricmc.fabric.api.biomes.v1.OverworldClimate
 import net.minecraft.entity.EntityCategory
 import net.minecraft.entity.EntityType
+import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.biome.DefaultBiomeFeatures
 import net.minecraft.world.gen.GenerationStep
@@ -79,12 +83,15 @@ class DeltasExtremeForestBiome() : Biome(DeltasExtremeForestBiomeSettings) {
     }
 }
 
+val DELTAS_EXTREME_FOREST_BIOME: Biome = Registry.register(
+    Registry.BIOME,
+    Identifier(ModId, "delta_extreme_forest"),
+    DeltasExtremeForestBiome()
+)
+
 @Suppress("unused")
 fun init() {
-    // This code runs as soon as Minecraft is in a mod-load-ready state.
-    // However, some things (like resources) may still be uninitialized.
-    // Proceed with mild caution.
-
-    println("Hello Fabric world!")
+    OverworldBiomes.addContinentalBiome(DELTAS_EXTREME_FOREST_BIOME, OverworldClimate.TEMPERATE, 2.0)
+    OverworldBiomes.addContinentalBiome(DELTAS_EXTREME_FOREST_BIOME, OverworldClimate.COOL, 2.0)
 }
 
